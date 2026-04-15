@@ -36,11 +36,6 @@ foreach ($session_order as $session_key) {
 
     $partial_file = $partials_dir . "session-{$session_key}.php";
 
-    // Thêm đoạn này để bắt ngoại lệ riêng cho thằng cf7
-    if ($session_key === 'cf7') {
-        $partial_file = $partials_dir . "session-cf7-form.php";
-    }
-
     // Only load partials that exist to prevent fatal errors
     if (file_exists($partial_file)) {
         include $partial_file;

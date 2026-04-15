@@ -110,6 +110,13 @@ class Part_Pages
             return;
         }
 
+        $template = get_post_meta($post->ID, '_wp_page_template', true);
+        if ($template !== self::TEMPLATE_KEY) {
+            // Dừng tại đây, không nạp style/script kéo thả và thư viện màu sắc nặng nề
+            // cho các trang thông thường.
+            return;
+        }
+
         wp_enqueue_style('wp-color-picker');
         wp_enqueue_media();
 
